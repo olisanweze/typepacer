@@ -1,6 +1,6 @@
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*=======================================================*/
 /*  App                                                  */
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*=======================================================*/
 
 :root {
   --background-dark: rgb(24, 23, 31);
@@ -11,11 +11,142 @@ body {
 }
 
 .container {
-  width: min(100% - 30px, 1080px);
+  width: min(100% - 40px, 1200px);
   margin-inline: auto;
 }
 
+.grid {
+  display: grid;
+}
 
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+.flex {
+  display: flex;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.center {
+  place-items: center;
+}
+
+/*=======================================================*/
 /*  Component                                            */
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*=======================================================*/
+
+main {
+  height: 100dvh;
+  background: url('../img/game-background.jpg') center / cover no-repeat;
+}
+
+.game-start {
+  background: url('../img/game-start.jpg') center / cover no-repeat;
+}
+
+.game-board {
+  height: 100%;
+}
+
+.game-board::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 / 0.6);
+  content: '';
+}
+
+.game-board-content {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 40;
+}
+
+h1, p, button, input {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: 700;
+  color: #f5f5f5;
+}
+
+p {
+  font-size: 25px;
+  color: #3ac0f0;
+}
+
+button {
+  margin: 45px 0 75px;
+  border-radius: 10px;
+  height: 60px;
+  line-height: 60px;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  width: 160px;
+  color: #f5f5f5;
+  background-color: #2b58de;
+  margin-bottom: 55px;
+}
+
+button:hover {
+  background-color: #214cce;
+}
+
+.score-notif p, .word-count {
+  color: #ff5252;
+}
+
+.time-notif p, .timer {
+  color: #3ac0f0;
+}
+
+.counter {
+  font-weight: 700;
+}
+
+.counter p {
+  font-size: 30px;
+}
+
+.counter span, .counter i {
+  font-size: 22px;
+}
+
+i {
+  color: #f5f5f5;
+  padding-right: 10px;
+}
+
+.words {
+  color: #ff5252;
+  font-weight: 700;
+  font-size: 50px;
+  margin-bottom: 30px;
+}
+
+.words-output {
+  height: 90px;
+  margin-top: 60px;
+}
+
+input {
+  height: 60px;
+  line-height: 60px;
+  width: 260px;
+  border-radius: 10px;
+  font-size: 25px;
+  font-weight: 600;
+  padding: 0 15px;
+  color: #3ac0f0;
+  background: rgb(0 0 0 / 0.3);
+}
+
+input::placeholder {
+  color: #3ac0f0;
+}
