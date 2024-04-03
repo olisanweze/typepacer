@@ -172,7 +172,7 @@ function stopMusic() {
 function genGameEnvironment() {
   screen.classList.add('game-start');
   userInput.setAttribute('placeholder', '');
-  title.innerText = 'Can you win this race?';
+  title.innerText = 'Can you beat the time?';
   enableInput();
   shuffleArray(words);
   currentIndex = 0;

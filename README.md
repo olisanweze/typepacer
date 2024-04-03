@@ -2,4 +2,4 @@
 
 How fast can you type?
 
-Click [here](https://olisanweze.github.io/raceagainsttype/) to play.
+Click [here](https://olisanweze.github.io/typepacer/) to play.

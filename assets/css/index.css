@@ -88,6 +88,10 @@ p {
   color: #3ac0f0;
 }
 
+.score-notif p {
+  font-size: 25px;
+}
+
 button {
   background-color: rgb(24 23 31);
   border-radius: 10px;
@@ -99,7 +103,6 @@ button {
 }
 
 .score-notif {
-  font-size: 25px;
   margin: 25px 0;
   line-height: 40px;
   font-weight: 700;
@@ -128,10 +131,6 @@ button {
 .fa-stopwatch {
   padding-top: 40px;
   display: block;
-}
-
-.fa-clipboard {
-  padding-right: 10px;
 }
 
 .counter i {
