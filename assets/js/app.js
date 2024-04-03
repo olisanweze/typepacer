@@ -8,7 +8,7 @@
 'use strict';
 
 import { select, listen } from './utils.js';
-import words from './words.js';
+import words from '../data/words.js';
 
 /*=======================================================*/
 /*  Global Variables                                     */
@@ -21,8 +21,10 @@ const startButton = select('button');
 const timer = select('.timer');
 const wordCount = select('.word-count');
 const title = select('.title')
-const audio = new Audio ('../assets/audio/silver-sparkles.mp3');
+const audio = new Audio ('../assets/audio/background-music.mp3');
 audio.type = 'audio/mp3';
+const ring = new Audio ('../assets/audio/arcade-mechanical.wav');
+ring.type = 'audio/wav';
 let typedWords = 0;
 let currentIndex = 0;
 let timeInGame = 99;
@@ -40,6 +42,14 @@ function createUserStats(hits, totalWords) {
   };
 }
 
+function disableInput() {
+  userInput.setAttribute('disabled', 'disabled');
+};
+
+function playRing() {
+  ring.play();
+}
+
 function enableInput() {
   userInput.removeAttribute('disabled');
   userInput.style.cursor = 'auto';
@@ -53,10 +63,10 @@ function gameCountdown() {
     timeInGame--;
 
     if (timeInGame < 11) {
-      timer.style.color= '#d80000';
+      timer.style.color= '#ff5252';
     }
 
-    if (timeInGame < 0) {
+    if (timeInGame <= 0) {
       clearInterval(countdownTimer);
       timer.innerText = 'Time up!'
       stopMusic();
@@ -64,6 +74,28 @@ function gameCountdown() {
     }
   }, 1000) 
 };
+
+
+function highlight(word, userInput) {
+  let highlighted = '';
+  for (let i = 0; i < word.length; i++) {
+    if (userInput[i] && word[i].toLowerCase() === userInput[i].toLowerCase()) {
+      highlighted += `<span class="red bigger">${word[i]}</span>`;
+    } else {
+      highlighted += word[i];
+    }
+  }
+  return highlighted;
+} 
+
+//  Study this typing function further
+function typing() {
+  let userInputText = userInput.value.toLowerCase();
+  let currentWord = words[currentIndex - 1];
+  
+  let highlightedWord = highlight(currentWord, userInputText);
+  randomWords.innerHTML = highlightedWord;
+}
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -78,13 +110,14 @@ function displayNextWord() {
     userInput.value = '';
     currentIndex ++;
   } else {
-    randomWords.textContent = 'No more words';
+    randomWords.textContent = 'no more words';
     disableInput();
     stopMusic();
   }
 }
 
 function userTypedInput() {
+  userInput.setAttribute('placeholder', '')
   const userInputText = userInput.value.toLowerCase();
   const currentWord = words[currentIndex - 1];
 
@@ -92,6 +125,7 @@ function userTypedInput() {
     words.splice(currentIndex - 1, 1);
     displayNextWord();
     playerScore();
+    playRing();
   }
 }
 
@@ -108,9 +142,8 @@ function calcAccuracy(typedWords, totalWords) {
 }
 
 function resetGame() {
-  startButton.value = 'Restart';
-  startButton.innerText = 'Restart';
-  startButton.style.backgroundColor = '#ff5252';
+  startButton.innerText = 'restart';
+  startButton.style.color = '#ff5252';
   clearInterval(countdownTimer);
 
   shuffleArray(words);
@@ -138,7 +171,7 @@ function stopMusic() {
 
 function genGameEnvironment() {
   screen.classList.add('game-start');
-  userInput.setAttribute('placeholder', 'type here...');
+  userInput.setAttribute('placeholder', '');
   title.innerText = 'Can you win this race?';
   enableInput();
   shuffleArray(words);
@@ -150,4 +183,5 @@ function genGameEnvironment() {
 }
 
 listen('input', userInput, userTypedInput);
+listen('input', userInput, typing);
 listen('click', startButton, genGameEnvironment);

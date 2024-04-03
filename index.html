@@ -20,26 +20,23 @@
     <main>
       <div class="container grid center game-board">
         <div class="game-board-content">
+          <button>start</button>
           <h1 class="title">Let's see how fast you type!</h1>
           <p>Type as many words as you can before time runs out</p>
-          <button>start</button>
-          <section class="space-between flex counter">
-            <div class="score-notif">
-              <p>Word Count</p>
-              <i class="fa-solid fa-clipboard"></i>
-              <span class="word-count">0</span>
-            </div>
+          <section class="counter justify-c">
             <div class="time-notif">
-              <p>Time left</p>
               <i class="fa-solid fa-stopwatch"></i>
               <span class="timer">99</span>
             </div>
           </section>
-          <div class="words-output">
+          <div class="words-output flex center">
             <p class="words"></p>
           </div>
+          <div class="score-notif flex justify-c center">
+            <p><span class="word-count">0</span> hits</p>
+          </div>
           <form class="user-input">
-            <input type="text" class="user" placeholder="are you ready?" 
+            <input type="text" class="user" placeholder="enter the word" 
             maxlength="15" disabled>
           </form>
         </div>
