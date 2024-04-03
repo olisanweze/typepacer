@@ -1,4 +1,4 @@
-## Race Against Type
+## Type Pacer
 
 How fast can you type?
 
