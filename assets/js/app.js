@@ -21,9 +21,9 @@ const startButton = select('button');
 const timer = select('.timer');
 const wordCount = select('.word-count');
 const title = select('.title')
-const audio = new Audio ('../assets/audio/background-music.mp3');
+const audio = new Audio ('./assets/audio/background-music.mp3');
 audio.type = 'audio/mp3';
-const ring = new Audio ('../assets/audio/arcade-mechanical.wav');
+const ring = new Audio ('./assets/audio/arcade-mechanical.wav');
 ring.type = 'audio/wav';
 let typedWords = 0;
 let currentIndex = 0;
@@ -143,7 +143,8 @@ function calcAccuracy(typedWords, totalWords) {
 
 function resetGame() {
   startButton.innerText = 'restart';
-  startButton.style.color = '#ff5252';
+  startButton.style.backgroundColor = '#ff5252';
+  timer.style.color= '#3ac0f0';
   clearInterval(countdownTimer);
 
   shuffleArray(words);
@@ -155,7 +156,7 @@ function resetGame() {
   audio.pause();
   audio.currentTime = 0;
   playMusic();
-
+  timer.innerText = '--';
   timeInGame = 99;
   gameCountdown();
 };
