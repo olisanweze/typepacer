@@ -288,4 +288,7 @@ function genGameEnvironment() {
 
 listen('input', userInput, userTypedInput);
 listen('input', userInput, typing);
+listen('load', window, displayScores);
+listen('load', window, displayData);
+listen('load', window, scoreBoardInfo);
 listen('click', startButton, genGameEnvironment);
