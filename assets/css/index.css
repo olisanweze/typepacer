@@ -52,7 +52,7 @@ body {
 /*=======================================================*/
 
 main {
-  height: 100dvh;
+  height: 100lvh;
   background: url('../img/game-background.jpg') center / cover no-repeat;
 }
 
@@ -60,7 +60,7 @@ main {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100lvh;
   background-color: rgb(0 0 0 / 0.7);
 }
 
