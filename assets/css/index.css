@@ -258,10 +258,6 @@ input::placeholder {
 /* 480px and down */
 
 @media (max-width: 480px) {
-  .game-board-content {
-    width: 100%;
-  }
-
   .score-board {
     padding: 20px;
     width: 87%;
