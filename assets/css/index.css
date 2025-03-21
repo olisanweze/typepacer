@@ -52,6 +52,7 @@ body {
 /*=======================================================*/
 
 main {
+  overflow-y: hidden;
   height: 100lvh;
   background: url('../img/game-background.jpg') center / cover no-repeat;
 }
