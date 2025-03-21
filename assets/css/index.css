@@ -111,7 +111,7 @@ main {
 }
 
 .game-board {
-  height: 100%;
+  height: 100lvh;
 }
 
 .game-board::before {
