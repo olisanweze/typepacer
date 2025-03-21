@@ -75,7 +75,7 @@ main {
   position: relative;
   padding: 40px;
   height: 100%;
-  width: 26%;
+  width: 400px;
   background: linear-gradient(to bottom, #222, #111);
   opacity: 0;
   transition: all 0.3s ease-in-out;
@@ -85,6 +85,14 @@ main {
 .score-board h2 {
   margin-bottom: 15px;
   font-weight: 700;
+}
+
+.score-board i {
+  position: absolute;
+  top: 47px;
+  right: 20px;
+  color: #f6136e;
+  cursor: pointer;
 }
 
 .score-board p {
@@ -118,12 +126,11 @@ main {
 
 .game-board-content {
   text-align: center;
-  position: relative;
+  position: absolute;
   background-color: rgb(24 23 31);
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
   padding: 35px;
   border-radius: 10px;
-  z-index: 40;
 }
 
 h1, h2, h3, h4, p, button, input {
@@ -253,5 +260,18 @@ input::placeholder {
 @media (max-width: 480px) {
   .game-board-content {
     width: 100%;
+  }
+
+  .score-board {
+    padding: 20px;
+    width: 87%;
+  }
+
+  .score-board i {
+    top: 27px;
+  }
+
+  p {
+    font-size: 14px;
   }
 }

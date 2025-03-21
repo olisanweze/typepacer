@@ -18,6 +18,7 @@ const randomWords = select('.words');
 const screen = select('main');
 const userInput = select('.user');
 const startButton = select('button');
+const closeButton = select('.score-board i');
 const timer = select('.timer');
 const wordCount = select('.word-count');
 const title = select('.title');
@@ -29,7 +30,7 @@ const ring = new Audio ('./assets/audio/arcade-mechanical.wav');
 ring.type = 'audio/wav';
 let typedWords = 0;
 let currentIndex = 0;
-let timeInGame = 15;
+let timeInGame = 60;
 let countdownTimer;
 let scores = getScores();
 let score;
@@ -240,6 +241,11 @@ function playerScore() {
   wordCount.textContent = typedWords;
 }
 
+function removeScoreBoard() {
+  scoreResult.classList.remove('block');
+  modal.classList.remove('modal-bg-dark');
+}
+
 function resetGame() {
   startButton.innerText = 'restart';
   startButton.style.backgroundColor = '#ff5252';
@@ -254,10 +260,9 @@ function resetGame() {
   audio.pause();
   audio.currentTime = 0;
   playMusic();
-  timeInGame = 15;
+  timeInGame = 60;
   gameCountdown();
-  scoreResult.classList.remove('block');
-  modal.classList.remove('modal-bg-dark');
+  removeScoreBoard();
 }
 
 function playMusic() {
@@ -292,3 +297,4 @@ listen('load', window, displayScores);
 listen('load', window, displayData);
 listen('load', window, scoreBoardInfo);
 listen('click', startButton, genGameEnvironment);
+listen('click', closeButton, removeScoreBoard);

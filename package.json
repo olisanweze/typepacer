@@ -10,7 +10,9 @@
   "author": "ejike-nweze, olisa m.",
   "license": "ISC",
   "dependencies": {
-    "i": "^0.3.7",
+    "i": "^0.3.7"
+  },
+  "devDependencies": {
     "lite-server": "^2.6.1"
   }
 }
